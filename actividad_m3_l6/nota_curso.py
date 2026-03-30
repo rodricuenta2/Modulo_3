@@ -1,30 +1,24 @@
-def calcular_notas_sobre_promedio():
-    # Pedimos la cantidad de notas
-    n = int(input("¿Cuántas notas vas a ingresar? "))
-    
-    if n <= 0:
-        print("La cantidad de notas debe ser mayor a cero.")
-        return
 
-    notas = []
 
-    # Ciclo para capturar las notas uno por uno
-    for i in range(n):
-        nota = float(input(f"Ingresa la nota {i + 1}: "))
-        notas.append(nota)
+cantidad = int(input("¿ Cuántas notas se van a ingresar ? : ")) # se pregunta cuantas notas se ingresaran/ se transforma a entero
 
-    # Calculamos el promedio
-    promedio = sum(notas) / n
-    print(f"\nEl promedio del curso es: {promedio:.2f}")
 
-    # Contamos cuántas notas superan ese promedio
-    contador_mayores = 0
-    for nota in notas:
-        if nota > promedio:
-            contador_mayores += 1
+notas = [] # aqui creamos la variable "notas" que es una lista vacia donde se guardaran las notas
 
-    # Salida final
-    print(f"La cantidad de notas mayores al promedio es: {contador_mayores}")
+# SE PIDEN NOTAS UNA POR UNA
+for a in range(cantidad): # para indice dentro de un "rango" que estara dado por lo que se ingresa
+    nota = float(input(f"Ingrese nota {a+1}: ")) # se define variable nota como lo que usuario ingresara/ se transforma a decimal(float)
+    notas.append(nota) # en lista notas se ira agregando "nota" que es lo que igresa el usuario
 
-# Ejecutamos la función
-calcular_notas_sobre_promedio()
+
+promedio = sum(notas) / cantidad # calculo de promedio que corresponde a la suma de todas las notas dividido por la cantidad de estas
+
+# CONTAR NOTAS QUE SON MAYORES AL PROMEDIO
+mayor = 0 # variable mayor comienza en 0
+for n in notas:  # para n(indice) en la lista notas
+    if n > promedio: # preguntamos si indice es mayor al promedio
+        mayor = mayor + 1 # entonces a variable mayor se le ira sumando 1 (mayor = 0 + 1)
+
+# SE MUESTRA LOS RESULTADOS
+print(f"El promedio es: {promedio}") # aqui mostramos el promedio 
+print(f"La cantidad de notas mayores al promedio es: {mayor}") # aqui se muestran las notas mayores al promedio
